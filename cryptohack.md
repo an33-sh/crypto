@@ -81,4 +81,28 @@ FAVOURATIE BYTES
 	for i in range(256):
 		print(xor(a,i))
 		
+	
 ```
+
+YOU EITHER KNOW ,XOR YOU DON'T
+------------------------------
+
+```
+	from pwn import xor
+	data = "0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
+	data=bytes.fromhex(data)
+	a=data[:7]
+	k="crypto{"
+	output=b''
+	for i,j in zip(a,k);
+		output+=bytes(xor(i,j))	#this will get b'myXORke' as key
+	key=b'myXORkey' 		#thus we can assume y
+	key=b'myXORkey'*6
+	key=key[:42] 			#because we can find that key len should be equal to the data
+	flag=xor(data,key)
+	
+```
+
+
+
+
